@@ -1,0 +1,17 @@
+.err { color: #f8f8f8; background-color: #b52a1d; }
+.ow, .k, .kd, .kn, .kr, .kt { color: #a71d5d; }
+.c, .ch, .cm, .c1, .cs { color: #969896; }
+.cp { color: #a71d5d; }
+.gd { color: #bd2c00; background-color: #ffecec; }
+.gh { color: #999999; }
+.gi { color: #55a532; background-color: #eaffea; }
+.gu { color: #795da3; font-weight: bold; }
+.m, .mb, .mf, .mh, .mi, .mo, .bp, .il, .ni { color: #0086b3; }
+.s, sb, .sd, .s1, .s2, .se, .sh, .si, .ss, .sx { color: #d01040; }
+.sc { color: #183691 }
+.sr { color: #009926 }
+.na, .nc, .nf, .nx { color: #795da3; }
+.nb { color: #183691; }
+.nd, .ne, .no { color: #0086b3; }
+.nt { color: #63a35c; }
+.nv { color: #333; }

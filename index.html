@@ -1,0 +1,202 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Github flavoured theme for Pygments</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+.highlight {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 85%;
+  color: #333;
+  background: #f7f7f7;
+  padding: 16px;
+  border-radius: 5px;
+  line-height: 1.45;
+  margin: 0;
+  margin-bottom: 20px;
+}
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Github flavoured theme for Pygments</h1>
+
+<p>I am fairly sure Github is not using Pygments as its syntax highlighter, so making a Pygments theme
+that looks exactly like Github's is not possible. This theme imitates Github's as much as possible
+with a little bit of my own style.</p>
+
+<p>This demo uses Rouge rather than Pygments (not supported by Github Pages).</p>
+
+<p>Get it from <a href="https://github.com/rongjiecomputer/github-pygments-theme">here</a>.</p>
+
+<h2>C++</h2>
+
+{% highlight cpp %}
+#include <cstdio>
+#include "header.h"
+
+/*
+ * This is comment block
+ */
+
+// This is inline comment
+
+#define DEBUG 1
+#ifdef DEBUG
+#define D(x...) fprintf(stderr, x)
+#else
+#deinfe D(x...) 
+#endif
+
+const int MAX_N = 1e3;
+const char *version = "v1.0";
+
+typedef long long ll;
+using namespace std;
+
+ll fib(ll n) {
+    if (n == 0ll || n == 1ll)
+        return 1ll;
+    else
+        return fib(n-1ll) + fib(n-2ll);
+}
+
+namespace lib {
+
+template<class F, class... Args>
+int pass_args(F&& f, Args&&... args) {
+    return f(std::forward<Args>(args)...);
+}
+
+}
+
+int main(int argc, char **argv) {
+    int white = 0xffffff;
+    int year = 2016;
+    int array[] = [1, 2, 3, 4, 5];
+    double pi = 3.14159265;
+    double area = 5 * 5 * pi;
+    printf("area: %lf\n", area);
+    char alphabet = 'A';
+    char string[] = "This is a string\n";
+    array[5] = 6;
+    return 0;
+}
+{% endhighlight %}
+
+<h2>Python</h2>
+
+{% highlight python %}
+none = None
+binary = 0b1000
+octet = 0o01
+hexadecimal = 0xff
+longInt = 1234567890L
+
+class Hello():
+    """Greet somebody"""
+    def say_hello():
+        print "Hello"
+
+try:
+    a = 1 / 0
+except ZeroDivisionError:
+    print "Caught!"
+
+from time import sleep
+
+def sleep_decorator(function):
+    """Limits how fast the function is called."""
+    def wrapper(*args, **kwargs):
+        sleep(2)
+        return function(*args, **kwargs)
+    return wrapper
+
+@sleep_decorator
+def print_number(num):
+    return num
+
+print(print_number(222))
+
+for num in range(1, 6):
+    print(print_number(num))
+{% endhighlight %}
+
+<h2>HTML</h2>
+
+{% highlight html %}
+<html>
+<head>
+<style type="text/css">
+body { background: grey; }
+a { color: black; }
+h1 { font-size: 25px; }
+</style>
+</head>
+<body>
+<h1>
+<a href="https://www.google.com">Google</a>
+</h1>
+<p>&copy; 2016</p>
+</body>
+</html>
+{% endhighlight %}
+
+<h2>JavaScript</h2>
+
+{% highlight js %}
+document.getElementById("div").innerHTML = "Hello World\n";
+console.log("logging...");
+
+var re = /[A-Z]{0,9}/g;
+re.exec("ABC");
+
+function Polygon(v, e) {
+    this._v = v;
+    this._e = e;
+}
+
+Polygon.protype.reshape = function(v, e) {
+    this._v = v;
+    this._e = e;
+}
+{% endhighlight %}
+
+<h2>Diff</h2>
+
+{% highlight diff %}
+diff --git a/Lib/asyncio/tasks.py b/Lib/asyncio/tasks.py
+index 14949d1..8852aa5 100644
+--- a/Lib/asyncio/tasks.py
++++ b/Lib/asyncio/tasks.py
+@@ -592,9 +592,11 @@ def __init__(self, children, *, loop=None):
+     def cancel(self):
+         if self.done():
+             return False
++        ret = False
+         for child in self._children:
+-            child.cancel()
+-        return True
++            if child.cancel():
++                ret = True
++        return ret
+{% endhighlight %}
+
+</body>
+</html>
